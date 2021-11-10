@@ -40,10 +40,7 @@ const theme = React.useMemo(
         <Item>Good Morning!</Item>
       </Grid>
       <Grid item xs={4}>
-        <Item>Insert Weather</Item>
-        <Grid item xs={4}>
           <Item><Weather /></Item>
-        </Grid>
       </Grid>
       <Grid item xs={4}>
         <Item>Today's Calendar</Item>

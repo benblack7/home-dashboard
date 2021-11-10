@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { myKey } from '../config.js';
+import { styled } from '@mui/material/styles';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 
 function Weather() {
   const[temp, setTemp] = useState('');
@@ -86,11 +89,27 @@ function Weather() {
   // }
 
   return (
-    <div>
-      <div>
-        {weather.main.temp}
-      </div>
-    </div>
+    <Box>
+    <Grid container spacing={1}>
+      <Grid item xs={12}>
+        {weather.main.temp}°
+      </Grid>
+      <Grid item xs={12} sm={12} container>
+      <Grid item xs={6} sm={4}>
+        <Grid>Min</Grid>
+        <Grid>{weather.main.temp_min}°</Grid>
+      </Grid>
+      <Grid item xs={6} sm={4}>
+        <Grid>Max</Grid>
+        <Grid>{weather.main.temp_max}°</Grid>
+      </Grid>
+      <Grid item xs={6}sm={4}>
+        <Grid>Humidity</Grid>
+        <Grid>{weather.main.humidity}%</Grid>
+      </Grid>
+      </Grid>
+    </Grid>
+    </Box>
   );
 }
 

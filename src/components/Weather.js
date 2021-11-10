@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { myKey } from '../config.js';
 
 function Weather() {
   const[temp, setTemp] = useState('');
@@ -62,8 +63,7 @@ function Weather() {
       units: 'imperial',
     },
     headers: {
-      'x-rapidapi-host': 'community-open-weather-map.p.rapidapi.com',
-      'x-rapidapi-key': '1ba20175f4msh22832413edfd794p151e5fjsn13bee121bf04'
+      myKey
     }
   };
 

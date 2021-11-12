@@ -53,7 +53,7 @@ const theme = React.useMemo(
       <Grid item xs={4}>
         <Item>Traffic Conditions</Item>
       </Grid>
-      <Grid item xs={4}>
+      <Grid item xs={12}>
         <Item>Top Stories</Item>
         <Item><TopStories /></Item>
       </Grid>

@@ -5,11 +5,12 @@ import Grid from '@mui/material/Grid';
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
+import Typography from '@material-ui/core/Typography';
 
 
 
 function TopStories() {
-  const [topStories, setTopStories] = useState({
+  const [topStories, setTopStories] = useState([{
     "id": "465418717023142467",
     "title": "Elon Musk lives up to Twitter promise, sells $1.1 billion in Tesla shares to pay taxes",
     "url": "https://www.latimes.com/business/story/2021-11-10/elon-musk-lives-up-to-twitter-promise-sells-1-1-billion-in-tesla-shares-to-pay-taxes",
@@ -21,36 +22,38 @@ function TopStories() {
     "isSafe": true,
     "datePublished": "2021-11-11T04:14:54.278",
     "provider": {
+      "name": "latimes",
+      "favIcon": "",
+      "favIconBase64Encoding": ""
+    },
+    "image": {
+      "url": "https://ca-times.brightspotcdn.com/dims4/default/9761f2c/2147483647/strip/true/crop/5301x2783+0+375/resize/1200x630!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F3a%2F98%2F2199e23fcaca3ab587d384677df7%2F7daef51524a44b3992612d799ae99b97",
+      "height": 630,
+      "width": 1200,
+      "thumbnail": "https://rapidapi.usearch.com/api/thumbnail/get?value=9161671905031609899",
+      "thumbnailHeight": 157,
+      "thumbnailWidth": 299,
+      "base64Encoding": null,
+      "name": null,
+      "title": null,
+      "provider": {
         "name": "latimes",
         "favIcon": "",
         "favIconBase64Encoding": ""
-    },
-    "image": {
-        "url": "https://ca-times.brightspotcdn.com/dims4/default/9761f2c/2147483647/strip/true/crop/5301x2783+0+375/resize/1200x630!/quality/90/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F3a%2F98%2F2199e23fcaca3ab587d384677df7%2F7daef51524a44b3992612d799ae99b97",
-        "height": 630,
-        "width": 1200,
-        "thumbnail": "https://rapidapi.usearch.com/api/thumbnail/get?value=9161671905031609899",
-        "thumbnailHeight": 157,
-        "thumbnailWidth": 299,
-        "base64Encoding": null,
-        "name": null,
-        "title": null,
-        "provider": {
-            "name": "latimes",
-            "favIcon": "",
-            "favIconBase64Encoding": ""
-        },
-        "imageWebSearchUrl": null,
-        "webpageUrl": "https://www.latimes.com/business/story/2021-11-10/elon-musk-lives-up-to-twitter-promise-sells-1-1-billion-in-tesla-shares-to-pay-taxes"
+      },
+      "imageWebSearchUrl": null,
+      "webpageUrl": "https://www.latimes.com/business/story/2021-11-10/elon-musk-lives-up-to-twitter-promise-sells-1-1-billion-in-tesla-shares-to-pay-taxes"
     }
-})
+  }])
 
 
   var options = {
     method: 'GET',
     url: 'https://contextualwebsearch-websearch-v1.p.rapidapi.com/api/search/TrendingNewsAPI',
-    params: {pageNumber: '1', pageSize: '3', withThumbnails: 'true', location: 'us'},
+    params: { pageNumber: '1', pageSize: '3', withThumbnails: 'true', location: 'us' },
     headers: {
+      'x-rapidapi-host': 'contextualwebsearch-websearch-v1.p.rapidapi.com',
+      'x-rapidapi-key': '1ba20175f4msh22832413edfd794p151e5fjsn13bee121bf04'
     }
   };
 
@@ -61,23 +64,33 @@ function TopStories() {
   const getTodaysStories = async () => {
     const apiCall = await
       axios
-      .request(options)
-      .then((response) => {
-        console.log(response.data.value)
-        setTopStories(response.data.value);
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+        .request(options)
+        .then((response) => {
+          console.log(response.data.value)
+          setTopStories(response.data.value);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
   }
 
-  let allStories = topStories.map(story => <li>{story.title}</li>)
-  console.log(allStories);
+  // console.log(topStories);
+
+  // topStories.map(story => {
+  //   console.log(story);
+  //   console.log(story.title);
+
+  // })
 
   return (
-  <div>
-  { allStories }
-  </div>
+    <div>
+      {topStories.map(story => (
+        <Grid>
+          <Typography variant="subtitle1">{story.title}</Typography>
+          <Typography variant="caption">{story.snippet}</Typography>
+        </Grid>
+      ))}
+    </div>
   )
 }
 

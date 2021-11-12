@@ -34,3 +34,5 @@ const data =
         "webpageUrl": "https://www.latimes.com/business/story/2021-11-10/elon-musk-lives-up-to-twitter-promise-sells-1-1-billion-in-tesla-shares-to-pay-taxes"
     }
 }
+
+export default data;

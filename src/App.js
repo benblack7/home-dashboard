@@ -3,11 +3,13 @@ import * as React from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Weather from './components/Weather.js';
 import TopStories from './components/TopStories.js';
+import CovidChart from './components/CovidChart.js';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
+import Typography from '@material-ui/core/Typography';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
@@ -51,10 +53,13 @@ const theme = React.useMemo(
         <Item>Today's Calendar</Item>
       </Grid>
       <Grid item xs={4}>
-        <Item>Traffic Conditions</Item>
+        <Item>Texas Covid Chart</Item>
+        <Item><CovidChart /></Item>
       </Grid>
       <Grid item xs={12}>
-        <Item>Top Stories</Item>
+        <Item>
+        <Typography variant="h4" >Top Stories</Typography>
+        </Item>
         <Item><TopStories /></Item>
       </Grid>
       <Grid item xs={4}>

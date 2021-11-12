@@ -44,7 +44,8 @@ function TopStories() {
       "imageWebSearchUrl": null,
       "webpageUrl": "https://www.latimes.com/business/story/2021-11-10/elon-musk-lives-up-to-twitter-promise-sells-1-1-billion-in-tesla-shares-to-pay-taxes"
     }
-  }])
+  },
+])
 
 
   var options = {
@@ -85,8 +86,8 @@ function TopStories() {
   return (
     <div>
       {topStories.map(story => (
-        <Grid>
-          <Typography variant="subtitle1">{story.title}</Typography>
+        <Grid style={{ margin: "16px 16px"}}>
+          <Typography variant="subtitle1" style={{ fontWeight: 600 }}>{story.title}</Typography>
           <Typography variant="caption">{story.snippet}</Typography>
         </Grid>
       ))}

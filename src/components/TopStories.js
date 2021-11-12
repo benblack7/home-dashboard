@@ -71,13 +71,13 @@ function TopStories() {
       })
   }
 
+  let allStories = topStories.map(story => <li>{story.title}</li>)
+  console.log(allStories);
+
   return (
-
-      {topStories.map((story) =>
-            <div>{story.title}</div>
-        )
-      }
-
+  <div>
+  { allStories }
+  </div>
   )
 }
 

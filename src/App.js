@@ -2,6 +2,7 @@ import './App.css';
 import * as React from 'react';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Weather from './components/Weather.js';
+import TopStories from './components/TopStories.js';
 import { styled } from '@mui/material/styles';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
@@ -54,6 +55,7 @@ const theme = React.useMemo(
       </Grid>
       <Grid item xs={4}>
         <Item>Top Stories</Item>
+        <Item><TopStories /></Item>
       </Grid>
       <Grid item xs={4}>
         <Item>Router UP/DOWN Metrics</Item>

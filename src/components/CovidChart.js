@@ -6,6 +6,7 @@ import axios from 'axios';
 import covidData from '../covidData.js';
 
 
+
 function CovidChart() {
 
   //const [covidData, setCovidData] = useState([]);
@@ -14,8 +15,7 @@ function CovidChart() {
     method: 'GET',
     url: 'https://coronavirus-smartable.p.rapidapi.com/stats/v1/US-TX/',
     headers: {
-      'x-rapidapi-host': 'coronavirus-smartable.p.rapidapi.com',
-      'x-rapidapi-key': '1ba20175f4msh22832413edfd794p151e5fjsn13bee121bf04'
+     //covidKey
     }
   };
 

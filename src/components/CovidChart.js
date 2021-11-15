@@ -11,6 +11,10 @@ function CovidChart() {
 
   //const [covidData, setCovidData] = useState([]);
 
+  const historyFormat = () => {
+
+  };
+
   var options = {
     method: 'GET',
     url: 'https://coronavirus-smartable.p.rapidapi.com/stats/v1/US-TX/',
@@ -37,16 +41,17 @@ function CovidChart() {
   // }
 
   return (
-    <div>
+    <Grid>
       <Grid>
-        {covidData.stats.newDeaths}
+        <Grid>New Cases</Grid>
+        <Grid>{covidData.stats.newlyConfirmedCases}</Grid>
       </Grid>
+      <Grid>
       {/* <XYPlot height={300} width={300}>
-        <XAxis />
-        <YAxis />
         <LineSeries data={covidData} />
       </XYPlot> */}
-    </div>
+      </Grid>
+    </Grid>
   )
 }
 
